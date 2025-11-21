@@ -6,20 +6,53 @@ output: html_document
 ---
 
 ```{r}
-# diimport dataset
+# mengimport dataset dan menampilkan nama nama kolom
 data <- read.csv("Dataset/dataset.csv")
-head(data)
+names(data)
 ```
 
 
 ```{r}
+# *************************************************************************************
+#
+#                           DATA CLEANSING
+#
+# *************************************************************************************
+
+
+library(readr)
+
+# *********************** Kolom IPK terakhir ******************************************
+data$`IPK.Terakhir..`[data$`IPK.Terakhir..` %in% c("-", ".", ",", "", " ")] <- NA
+
+data$`IPK.Terakhir..` <- gsub(",", ".", data$`IPK.Terakhir..`)
+data$`IPK.Terakhir..` <- as.numeric(data$`IPK.Terakhir..`)
+
+data$`IPK.Terakhir..`[data$`IPK.Terakhir..` > 4] <- NA
+data$`IPK.Terakhir..`[data$`IPK.Terakhir..` == 0] <- NA
+
+
+
+# ***********************JAM BELAJAR PERMINGGU*****************************************
+
+names(data)[names(data) == "Rata.rata.belajar.perminggu..dalam.jam..."] <- "BelajarJam"
+
+data$BelajarJam <- gsub(",", ".", data$BelajarJam)
+
+data$BelajarJam <- as.numeric(data$BelajarJam)
+
+data$BelajarJam[data$BelajarJam < 0 | data$BelajarJam > 60] <- NA
+
+# *************************************************************************************
+
+
+summary(data)
+
+
 ```
 
 
 ```{r}
-```
-
-
-```{r}
+str(data)
 ```
 
