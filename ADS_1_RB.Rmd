@@ -1,0 +1,25 @@
+---
+title: "TUGAS BESAR ADS"
+author: "KELOMPOK 1"
+date: "2025-11-18"
+output: html_document
+---
+
+```{r}
+# diimport dataset
+data <- read.csv("Dataset/dataset.csv")
+head(data)
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
