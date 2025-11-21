@@ -77,25 +77,3 @@ summary(data)
 
 
 ```
-
-
-```{r}
-str(data)
-```
-```{r}
-data$`Pendapatan.Orangtua..` <- factor(
-  data$`Pendapatan.Orangtua..`,
-  levels = c("< 1jt",
-             "1jt - 3jt",
-             "3 jt - 5jt",
-             "5 jt - 7 jt",
-             "7 jt - 9 jt",
-             "> 9jt"),
-  ordered = TRUE
-)
-
-summary(data)
-
-```
-
-
