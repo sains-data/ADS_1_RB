@@ -101,9 +101,13 @@ print(box_plot)
 
 
 ```{r}
-# **********************JUMLAH ANGGOTA KELUARGA****************************************
+# JUMLAH ANGGOTA KELUARGA
+
 data <- read.csv("Dataset/dataset.csv")
 library(readr)
+
+
+# **************************DATA CLEANSING*********************************************
 
 data$`Jumlah.Anggota.Keluarga..` <- as.character(data$`Jumlah.Anggota.Keluarga..`)
 
@@ -116,38 +120,134 @@ data$`Jumlah.Anggota.Keluarga..` <- as.integer(data$`Jumlah.Anggota.Keluarga..`)
 
 data$`Jumlah.Anggota.Keluarga..`[data$`Jumlah.Anggota.Keluarga..` > 12] <- NA
 
+
+library(ggplot2)
+
+ggplot(data, aes(x = data$`Jumlah.Anggota.Keluarga..`)) +
+  geom_bar(fill = "lightgreen") +
+  
+  labs(
+    title = "Distribusi Jumlah Anggota Keluarga",
+    x = "Jumlah Anggota Keluarga",
+    y = "Jumlah Mahasiswa"
+  ) +
+  theme_minimal()
+
+
 summary(data$`Jumlah.Anggota.Keluarga..`)
 ```
 
 
+
+
+
 ```{r}
-# **********************JARAK RUMAH KE KAMPUS********************************************
+# BERAT BADAN MAHASISWA ITERA
+
+data <- read.csv("Dataset/dataset.csv")
+library(readr)
+# **************************DATA CLEANSING*********************************************
 
 
+data$Berat.Badan.. <- as.character(data$Berat.Badan..)
+data$Berat.Badan.. <- gsub("\\s+", "", data$Berat.Badan..)
+data$Berat.Badan.. <- gsub("kg", "", data$Berat.Badan.., ignore.case = TRUE)
+data$Berat.Badan.. <- gsub("[^0-9.]", "", data$Berat.Badan..)
+data$Berat.Badan.. <- as.numeric(data$Berat.Badan..)
 
-# *************************************************************************************
+
+# FUNGSI SKEWNESS
+skew_manual <- function(x) {
+  x <- x[!is.na(x)]
+  m <- mean(x)
+  s <- sd(x)
+  mean(((x - m) / s)^3)
+}
+summary(data$Berat.Badan..)
+
+
+interpret_skewness <- function(value) {
+  if (value > 1) {
+    return("Distribusi sangat condong ke kanan (right-skewed kuat).")
+  } else if (value > 0.5) {
+    return("Distribusi condong ke kanan dengan tingkat moderat.")
+  } else if (value > 0) {
+    return("Distribusi sedikit condong ke kanan.")
+  } else if (value == 0) {
+    return("Distribusi simetris.")
+  } else if (value > -0.5) {
+    return("Distribusi sedikit condong ke kiri.")
+  } else if (value > -1) {
+    return("Distribusi condong ke kiri dengan tingkat moderat.")
+  } else {
+    return("Distribusi sangat condong ke kiri (left-skewed kuat).")
+  }
+}
+
+cat("Skewness Berat Badan:", skew_berat, "\n")
+cat("Interpretasi:", interpret_skewness(skew_berat), "\n")
+
+
+```
+
+
+```{r}
+# TINGGI BADAN MAHASISWA ITERA
+
+data <- read.csv("Dataset/dataset.csv")
+library(readr)
+# **************************DATA CLEANSING*********************************************
+
+data$Tinggi.Badan..[data$Tinggi.Badan.. < 120 | data$Tinggi.Badan.. > 220] <- NA
+data$Tinggi.Badan.. <- as.character(data$Tinggi.Badan..)
+data$Tinggi.Badan.. <- gsub("\\s+", "", data$Tinggi.Badan..)
+data$Tinggi.Badan.. <- gsub("cm", "", data$Tinggi.Badan.., ignore.case = TRUE)
+data$Tinggi.Badan.. <- gsub("[^0-9.]", "", data$Tinggi.Badan..)
+data$Tinggi.Badan.. <- as.numeric(data$Tinggi.Badan..)
+summary(data$Tinggi.Badan..)
+
+# FUNGSI SKEWNESS MANUAL
+
+skew_manual <- function(x) {
+  x <- x[!is.na(x)]
+  m <- mean(x)
+  s <- sd(x)
+  mean(((x - m) / s)^3)
+}
+
+
+interpret_skewness <- function(value) {
+  if (value > 1) {
+    return("Distribusi sangat condong ke kanan (right-skewed kuat).")
+  } else if (value > 0.5) {
+    return("Distribusi condong ke kanan dengan tingkat moderat.")
+  } else if (value > 0) {
+    return("Distribusi sedikit condong ke kanan.")
+  } else if (value == 0) {
+    return("Distribusi simetris.")
+  } else if (value > -0.5) {
+    return("Distribusi sedikit condong ke kiri.")
+  } else if (value > -1) {
+    return("Distribusi condong ke kiri dengan tingkat moderat.")
+  } else {
+    return("Distribusi sangat condong ke kiri (left-skewed kuat).")
+  }
+}
+
+cat("Skewness Tinggi Badan:", skew_tinggi, "\n")
+cat("Interpretasi:", interpret_skewness(skew_tinggi), "\n")
+
+
 ```
 
 
 
-```{r}
-
-```
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 ```{r}
+data <- read.csv("Dataset/dataset.csv")
+
 summary(data)
 ```
 
