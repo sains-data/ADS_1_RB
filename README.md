@@ -4,9 +4,10 @@ TUGAS BESAR ANALISIS DATA STATISTIK
 Judul  : Analisis Distribusi dan Statistik Deskriptif Variabel Numerik Mahasiswa ITERA
 
 Struktur Direktori:
-ADS_1_RB.Rmd        
-Dataset/dataset.csv   
-README.MD
+  ADS_1_RB.Rmd        
+  Dataset
+    dataset.csv   
+  README.MD
 
   Anggota Kelompok:
     1. Fitra(124450102)
