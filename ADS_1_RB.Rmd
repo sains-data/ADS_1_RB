@@ -152,10 +152,16 @@ data_outlier <- data[which(data$`IPK.Terakhir..` < batas_bawah |
 
 if(nrow(data_outlier) > 0) {
   cat("DITEMUKAN", nrow(data_outlier), "DATA OUTLIER:\n")
-  print(data_outlier[, c("IPK.Terakhir..")]) # Menampilkan nilai IPK-nya saja
+  print(data_outlier[, c("IPK.Terakhir..")])
 } else {
   cat("Data bersih. Tidak ditemukan outlier dengan metode IQR.\n")
+  
 }
+
+cat("==========================================================================\n")
+cat("Ringkasan\n")
+
+summary(data$`IPK.Terakhir..`)
 ```
 
 
@@ -189,6 +195,11 @@ ggplot(data, aes(y = BelajarJam)) +
     y = "Jam Belajar per Minggu"
   ) +
   theme_minimal()
+
+cat("Ringkasan\n")
+
+summary(data$BelajarJam)
+
 ```
 
 
@@ -215,7 +226,7 @@ summary(data$`Jumlah.Anggota.Keluarga..`)
 
 
 
-# 5. Analisis Fisik (Berat & Tinggi Badan)
+# B. Analisis Fisik (Berat & Tinggi Badan)
 melihat kecendrungan (skewness) dari data fisik mahasiswa.
 ```{r}
 # --- BERAT BADAN ---
@@ -232,5 +243,12 @@ skew_tinggi <- skew_manual(data$Tinggi.Badan..)
 cat("--- ANALISIS TINGGI BADAN ---\n")
 cat("Nilai Skewness :", round(skew_tinggi, 4), "\n")
 cat("Kesimpulan     :", interpret_skewness(skew_tinggi), "\n")
+
+
+cat("\n==========================================================================\n")
+cat("Ringkasan berat badan:\n")
+summary(data$Berat.Badan..)
+cat("\n\nRingkasan tinggi badan:\n")
+summary(data$Tinggi.Badan..)
 ```
 
