@@ -1,7 +1,7 @@
 # Kelompok 1 ADS RB
 
 TUGAS BESAR ANALISIS DATA STATISTIK
-Judul  : Analisis Distribusi dan Statistik Deskriptif Variabel Numerik Mahasiswa ITERA
+Judul  : Analisis Statistik Deskriptif IPK, Jam Belajar, dan Karakteristik Mahasiswa ITERA
 
 Struktur Direktori:
 ADS_1_RB.Rmd        
