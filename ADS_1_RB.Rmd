@@ -1,5 +1,5 @@
 ---
-title: "TUGAS BESAR ADS - Analisis Profil Mahasiswa"
+title: "TUGAS BESAR ADS - Analisis Distribusi dan Statistik Deskriptif Variabel Numerik Mahasiswa ITERA "
 author: "KELOMPOK 1"
 date: "2025-11-18"
 output: html_document
