@@ -18,6 +18,7 @@ Analisis mencakup:
 - RStudio (direkomendasikan)  
 
 ## Struktur Direktori
+'''text
 code/
 ├─ Dataset/
 │ └─ dataset.csv
@@ -39,6 +40,7 @@ output/
 poster/
 ├─ Poster_1_RB.pdf
 README.md
+'''
 
 
 ## Dataset
