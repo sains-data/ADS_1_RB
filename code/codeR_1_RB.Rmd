@@ -1,8 +1,11 @@
 ---
-title: "TUGAS BESAR ADS - Analisis Statistik Deskriptif IPK, Jam Belajar, dan Karakteristik Mahasiswa ITERA"
+title: "TUGAS BESAR ADS - Analisis Statistik Deskriptif IPK, Jam Belajar, dan Karakteristik
+  Mahasiswa ITERA"
 author: "KELOMPOK 1"
 date: "2025-11-18"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 # 1. Persiapan Lingkungan (Environment Setup)
