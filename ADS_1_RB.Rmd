@@ -115,9 +115,9 @@ stem-leaf, dan analisis Outlier menggunakan metode IQR.
 ggplot(data, aes(x = `IPK.Terakhir..`)) +
   geom_dotplot(binwidth = 0.045, fill = "lightgreen", color = "darkgreen") +
   labs(
-    title = "Sebaran IPK Terakhir Mahasiswa",
+    title = "Dot plot Sebaran IPK Terakhir Mahasiswa",
     x = "IPK",
-    y = "Jumlah Mahasiswa"
+    y = "Kerapatan"
   ) +
   theme_minimal()
 
@@ -208,11 +208,11 @@ summary(data$BelajarJam)
 
     A. Jumlah Anggota Keluarga
 ```{r}
-library(ggplot2)
-
-ggplot(data, aes(x = data$`Jumlah.Anggota.Keluarga..`)) +
+ggplot(data, aes(x = factor(Jumlah.Anggota.Keluarga..))) +
   geom_bar(fill = "lightgreen") +
-  
+  scale_y_continuous(
+    breaks = seq(0, max(table(data$Jumlah.Anggota.Keluarga..)), by = 10)
+  ) +
   labs(
     title = "Distribusi Jumlah Anggota Keluarga",
     x = "Jumlah Anggota Keluarga",
@@ -221,7 +221,9 @@ ggplot(data, aes(x = data$`Jumlah.Anggota.Keluarga..`)) +
   theme_minimal()
 
 
+
 summary(data$`Jumlah.Anggota.Keluarga..`)
+
 ```
 
 
@@ -230,7 +232,15 @@ summary(data$`Jumlah.Anggota.Keluarga..`)
 melihat kecendrungan (skewness) dari data fisik mahasiswa.
 ```{r}
 # --- BERAT BADAN ---
+
+cat("Ringkasan berat badan:\n")
+summary(data$Berat.Badan..)
+cat("\n\nRingkasan tinggi badan:\n")
+summary(data$Tinggi.Badan..)
+
 skew_berat <- skew_manual(data$Berat.Badan..)
+cat("\n==========================================================================\n")
+
 
 cat("--- ANALISIS BERAT BADAN ---\n")
 cat("Nilai Skewness :", round(skew_berat, 4), "\n")
@@ -245,10 +255,6 @@ cat("Nilai Skewness :", round(skew_tinggi, 4), "\n")
 cat("Kesimpulan     :", interpret_skewness(skew_tinggi), "\n")
 
 
-cat("\n==========================================================================\n")
-cat("Ringkasan berat badan:\n")
-summary(data$Berat.Badan..)
-cat("\n\nRingkasan tinggi badan:\n")
-summary(data$Tinggi.Badan..)
+
 ```
 
