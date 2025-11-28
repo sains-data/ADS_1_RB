@@ -18,7 +18,7 @@ Analisis mencakup:
 - RStudio (direkomendasikan)  
 
 ## Struktur Direktori
-'''text
+```text
 code/
 ├─ Dataset/
 │ └─ dataset.csv
@@ -40,7 +40,7 @@ output/
 poster/
 ├─ Poster_1_RB.pdf
 README.md
-'''
+```
 
 
 ## Dataset
@@ -62,31 +62,31 @@ Instalasi paket (jika belum ada):
 
 ```r
 install.packages(c("ggplot2", "dplyr", "readr"))
-'''
+```
 
 
 Cara Menjalankan Analisis
 1. Clone repositori
-'''bash
+```bash
 git clone https://github.com/sains-data/ADS_1_RB.git
 cd ADS_1_RB
-'''
+```
 
 2. Buka RStudio dan set working directory
-'''r
+```r
 setwd("path/to/ADS_1_RB")
-'''
+```
 
 3. Install paket yang diperlukan (jika belum ada)
-'''r
+```r
 install.packages(c("ggplot2", "dplyr", "readr"))
-'''
+```
 
 4. Jalankan script utama
 Buka dan jalankan file R Markdown:
-'''r
+```r
 file.edit("code/codeR_1_RB.Rmd")
-...
+```
 
 
 Lalu klik “Run All” di RStudio.
