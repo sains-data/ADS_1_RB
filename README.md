@@ -18,7 +18,7 @@ Analisis mencakup:
 - RStudio (direkomendasikan)  
 
 ## Struktur Direktori
-'''txt
+'''text
 code/
 ├─ Dataset/
 │ └─ dataset.csv
